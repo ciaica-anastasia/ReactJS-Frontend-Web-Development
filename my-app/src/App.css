@@ -1,10 +1,7 @@
 .counter {
     margin: auto;
-    width: 30%;
+    width: 15%;
     padding: 10px;
     text-align: center;
-}
-
-.first-counter, .second-counter {
     border: 1px solid lightgreen;
 }
