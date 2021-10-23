@@ -6,20 +6,18 @@ export class Counter extends React.Component {
         super(props);
 
         this.state = {
-            name: props.name,
-            start: props.start,
-            end: props.end
+            currentCount: props.start,
         };
     }
 
     componentDidMount() {
         this.timerId = setInterval(() => {
-            this.setState( (prevState) => {
+            this.setState((prevState) => {
                 return {
-                    start: prevState.start + 1
+                    currentCount: prevState.currentCount + 1
                 }
             })
-            if (this.state.start === this.state.end) {
+            if (this.state.currentCount === this.props.end) {
                 clearInterval(this.timerId);
             }
         }, 1000);
@@ -32,8 +30,8 @@ export class Counter extends React.Component {
     render() {
         return (
             <div className="counter">
-                <h4>This is {this.state.name} counter!</h4>
-                <h1>{this.state.start}</h1>
+                <h4>This is {this.props.name} counter!</h4>
+                <h1>{this.state.currentCount}</h1>
             </div>
         );
     }
